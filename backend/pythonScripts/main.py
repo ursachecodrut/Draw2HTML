@@ -1,9 +1,13 @@
 import cv2
 import numpy as np
 import imutils
+import os
+import sys
 from html_generator import *
 
-img = cv2.imread('images/test3.jpg')
+# print('cacat ./../images/' + sys.argv[1])
+
+img = cv2.imread('./images/' + sys.argv[1])
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
 # blue range
@@ -80,8 +84,11 @@ html_string = generate_html_string(divs, paragraphs, images)
 
 print(html_string)
 
+save_path = './htmlGen'
+file_name = 'index.html'
+complete_name = os.path.join(save_path, file_name)
 
-with open("index.html", "w") as html_file:
+with open(complete_name, "w") as html_file:
     html_file.write(html_string)
 
 cv2.imshow("test", img)
