@@ -5,7 +5,6 @@ import os
 import sys
 from html_generator import *
 
-# print('cacat ./../images/' + sys.argv[1])
 
 img = cv2.imread('./images/' + sys.argv[1])
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -48,21 +47,21 @@ for cb in blue_contours:
     div = [x, y, w, h]
     divs.append(div)
     cv2.rectangle(img, (x, y), (x+w, y+h), (225, 255, 0), 2)
-    print('div: ', div)
+    # print('div: ', div)
 
 for cg in green_contours:
     x, y, w, h = cv2.boundingRect(cg)
     paragraph = [x, y, w, h]
     paragraphs.append(paragraph)
     cv2.rectangle(img, (x, y), (x+w, y+h), (225, 225, 0), 2)
-    print('paragraph: ', paragraph)
+    # print('paragraph: ', paragraph)
 
 for cr in red_contours:
     x, y, w, h = cv2.boundingRect(cr)
     image = [x, y, w, h]
     images.append(image)
     cv2.rectangle(img, (x, y), (x+w, y+h), (225, 225, 0), 2)
-    print('image: ', image)
+    # print('image: ', image)
 
 
 # convert arrays into np.arrays
@@ -70,19 +69,19 @@ divs = np.array(divs)
 paragraphs = np.array(paragraphs)
 images = np.array(images)
 
-for item in divs:
-    print(item)
+# for item in divs:
+#     print(item)
 
-for item in paragraphs:
-    print(item)
+# for item in paragraphs:
+#     print(item)
 
-for item in images:
-    print(item)
+# for item in images:
+#     print(item)
 
 
 html_string = generate_html_string(divs, paragraphs, images)
 
-print(html_string)
+# print(html_string)
 
 save_path = './htmlGen'
 file_name = 'index.html'
@@ -91,5 +90,5 @@ complete_name = os.path.join(save_path, file_name)
 with open(complete_name, "w") as html_file:
     html_file.write(html_string)
 
-cv2.imshow("test", img)
-cv2.waitKey(0)
+# cv2.imshow("test", img)
+# cv2.waitKey(0)
