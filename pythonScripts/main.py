@@ -3,18 +3,13 @@ import numpy as np
 import imutils
 import os
 import sys
-from os.path import join
 from html_generator import *
-print('la inceput')
 
-filePath = join('../client/public/uploads/', sys.argv[1])
-print(filePath)
-img = cv2.imread(filePath)
-print('intre')
-print(img)
+
+filePath = os.path.join('client/public/uploads/', sys.argv[1])
+filePath2 = os.path.join(os.getcwd(), filePath)
+img = cv2.imread(filePath2)
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-
-print('cacat')
 
 # blue range
 lower_blue = np.array([90, 60, 0])
@@ -92,7 +87,7 @@ html_string = generate_html_string(divs, paragraphs, images)
 
 # print(html_string)
 
-save_path = './../client/public/htmlGen'
+save_path = os.path.join(os.getcwd(), 'client/public/htmlGen')
 file_name = 'index.html'
 complete_name = os.path.join(save_path, file_name)
 print(complete_name)

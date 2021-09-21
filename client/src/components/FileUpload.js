@@ -75,6 +75,13 @@ const FileUpload = () => {
 					value="Upload"
 					className="btn btn-primary btn-block mt-4"
 				/>
+				{uploadPercentage === 100 ? (
+					<button className="btn btn-success btn-block mt-4">
+						<a href="/htmlGen/index.html" style={{ color: 'white' }} download>
+							Click to download html file
+						</a>
+					</button>
+				) : null}
 			</form>
 			{uploadedFile ? (
 				<div className="row mt-5">
