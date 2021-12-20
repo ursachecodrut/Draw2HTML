@@ -1,3 +1,5 @@
 node_modules/
 /node_modules
-.vscode
+.vscode/
+/client/public/htmlGen/index.html
+/client/public/uploads/

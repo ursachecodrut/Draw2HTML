@@ -90,8 +90,8 @@ html_string = generate_html_string(divs, paragraphs, images)
 save_path = os.path.join(os.getcwd(), 'client/public/htmlGen')
 file_name = 'index.html'
 complete_name = os.path.join(save_path, file_name)
-print(complete_name)
-print(html_string)
+# print(complete_name)
+# print(html_string)
 
 with open(complete_name, "w") as html_file:
     html_file.write(html_string)
